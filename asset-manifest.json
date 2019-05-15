@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/awn-funeral/static/js/main.dde29b6e.chunk.js",
+    "main.js.map": "/awn-funeral/static/js/main.dde29b6e.chunk.js.map",
+    "runtime~main.js": "/awn-funeral/static/js/runtime~main.8d164a34.js",
+    "runtime~main.js.map": "/awn-funeral/static/js/runtime~main.8d164a34.js.map",
+    "static/js/2.c996ae6e.chunk.js": "/awn-funeral/static/js/2.c996ae6e.chunk.js",
+    "static/js/2.c996ae6e.chunk.js.map": "/awn-funeral/static/js/2.c996ae6e.chunk.js.map",
+    "index.html": "/awn-funeral/index.html",
+    "precache-manifest.d47099524408c2c044644158221dfc53.js": "/awn-funeral/precache-manifest.d47099524408c2c044644158221dfc53.js",
+    "service-worker.js": "/awn-funeral/service-worker.js"
+  }
+}
