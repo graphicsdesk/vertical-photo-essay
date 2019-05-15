@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
 import injectSheet from 'react-jss';
 import stickybits from 'stickybits';
-import { shorten } from '../utils';
 import Navbar from './Navbar';
 import Header from './Header';
 import Footer from './Footer';
@@ -22,7 +21,6 @@ const imgStyles = {
 
 const styles = {
   main: {
-    marginBottom: '2rem',
     fontFamily: 'Helvetica',
     display: 'flex',
     flexDirection: 'row-reverse',
@@ -49,15 +47,19 @@ const styles = {
   },
   step: {
     margin: '0 auto',
-    maxWidth: '360px',
+    maxWidth: '420px',
     padding: '0 10%',
     marginBottom: '90vh',
+    '& p:last-child': {
+      marginBottom: 0,
+    },
   },
   text: {
     fontFamily: 'Merriweather',
-    fontSize: '1.2rem',
-    lineHeight: '1.8',
+    fontSize: '1.13rem',
+    lineHeight: 1.8,
     margin: 0,
+    marginBottom: '2rem',
   },
 
   '@media (max-width: 767px)': {
@@ -92,22 +94,28 @@ class Graphic extends Component {
 
     this.images = [];
 
-    this.steps = slides.map(({ image, text }) => {
-      this.images.push({
-        src: image,
-        alt: shorten(text),
-      });
-      return (
-        <Step data={image} key={image}>
-          <div className={classes.step}>
-            <p className={classes.text}>{text}</p>
-          </div>
-        </Step>
-      );
-    });
+    let currentImg = null;
+    this.steps = slides.reduce((acc, { type, value }) => {
+      if (type === 'image') {
+        this.images.push((currentImg = value));
+      } else if (type === 'text') {
+        acc.push(
+          <Step data={currentImg} key={value}>
+            <div className={classes.step}>
+              {value.split('[NEWLINE]').map(text => (
+                <p className={classes.text} key={text}>
+                  {text.trim()}
+                </p>
+              ))}
+            </div>
+          </Step>,
+        );
+      }
+      return acc;
+    }, []);
 
     this.state = {
-      image: this.images[0].src,
+      image: this.images[0],
     };
   }
 
@@ -117,23 +125,22 @@ class Graphic extends Component {
 
   render() {
     const { image } = this.state;
-    const { classes, header } = this.props;
+    const { classes } = this.props;
 
     return (
       <div className={classes.main}>
         <div className={classes.imageContainer} id={STICKY_ID}>
-          {this.images.map(({ src, alt }) => (
+          {this.images.map(src => (
             <img
               key={src}
               className={image === src ? classes.img : classes.hideImg}
               src={src}
-              alt={alt}
             />
           ))}
         </div>
         <div className={classes.content}>
           <Navbar />
-          <Header header={header} />
+          <Header />
           <Scrollama offset={SCROLLAMA_OFFSET} onStepEnter={this.onStepEnter}>
             {this.steps}
           </Scrollama>

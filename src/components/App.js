@@ -4,11 +4,11 @@ import copyString from '../copy';
 
 import Graphic from './Graphic';
 
-const { header, slides } = archieml.load(copyString);
+const { copy } = archieml.load(copyString);
 
 const App = () => (
   <div>
-    <Graphic slides={slides} header={header} />
+    <Graphic slides={copy} />
   </div>
 );
 

@@ -4,11 +4,11 @@ import injectSheet from 'react-jss';
 const styles = {
   header: {
     marginBottom: '80vh',
-    marginTop: '33vh',
+    marginTop: '31vh',
   },
   headline: {
     textAlign: 'center',
-    padding: '0 15%',
+    padding: '0 12%',
     fontFamily: 'Merriweather',
     fontSize: '2.5rem',
     lineHeight: 1.5,
@@ -29,7 +29,11 @@ const styles = {
     fontWeight: 300,
     marginBottom: '5px',
     '& a': {
-      color: '#000',
+      color: '#777',
+      textDecoration: 'none',
+      '&:hover': {
+        textDecoration: 'underline',
+      },
     },
   },
   smallButMightyLine: {
@@ -46,6 +50,13 @@ const styles = {
     color: '#aaa',
     fontWeight: 300,
     lineHeight: 1.6,
+    '& a': {
+      color: '#aaa',
+      textDecoration: 'none',
+      '&:hover': {
+        textDecoration: 'underline',
+      },
+    },
   },
   '@media (max-width: 991px)': {
     title: {
@@ -64,10 +75,17 @@ const styles = {
     byline: {
       color: '#333',
       fontWeight: 400,
+      '& a': {
+        color: '#333',
+      },
     },
     timestamp: {
       color: '#333',
+      fontSize: '.75rem',
       fontWeight: 400,
+      '& a': {
+        color: '#333',
+      },
     },
   },
   '@media (max-width: 575px)': {
@@ -77,21 +95,32 @@ const styles = {
   },
 };
 
-const Header = ({ classes, header }) => {
-  let { headline, writer, photographer, date } = header;
-  date = date.toUpperCase();
-
+const Header = ({ classes }) => {
   return (
     <div className={classes.header}>
-      <p className={classes.headline}>{headline}</p>
+      <p className={classes.headline}>
+        Why they came to celebrate the life of Peter Awn
+      </p>
       <div className={classes.meta}>
-        <p className={classes.byline}>Written by {writer}</p>
-        <p className={classes.byline}>Photography by {photographer}</p>
+        <p className={classes.byline}>
+          Reporting by{' '}
+          <a href="https://www.columbiaspectator.com/contributors/Valeria-Escobar/">
+            Valeria Escobar
+          </a>{' '}
+          and{' '}
+          <a href="https://www.columbiaspectator.com/contributors/Emma-James/">
+            Emma James
+          </a>
+        </p>
+        <p className={classes.byline}>Photography by Rya Inman</p>
         <div className={classes.smallButMightyLine} />
         <p className={classes.timestamp}>
-          {date}
+          May 15, 2019
           <br />
-          GRAPHICS BY JASON KAO
+          GRAPHICS BY{' '}
+          <a href="https://www.columbiaspectator.com/contributors/Jason-Kao/">
+            JASON KAO
+          </a>
         </p>
       </div>
     </div>
