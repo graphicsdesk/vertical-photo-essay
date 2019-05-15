@@ -44,6 +44,7 @@ const styles = {
     padding: '0 10%',
     margin: '0 auto',
     color: '#aaa',
+    lineHeight: 1.6,
   },
   '@media (max-width: 991px)': {
     title: {
