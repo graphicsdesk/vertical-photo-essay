@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "72869e8bde582aa9c7ddead880ed2a84",
+    "revision": "52a4bcc605dab6902a42c0d8d9fae234",
     "url": "/vertical-photo-essay/index.html"
   },
   {
