@@ -5,7 +5,9 @@ const styles = {
   navbar: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: '13px',
+    paddingTop: '13px',
+    paddingBottom: '9px',
+    background: '#fff',
   },
   logo: {
     height: '17px',

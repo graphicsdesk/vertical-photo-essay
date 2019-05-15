@@ -25,6 +25,7 @@ const styles = {
     marginBottom: '2rem',
     fontFamily: 'Helvetica',
     display: 'flex',
+    flexDirection: 'row-reverse',
   },
   imageContainer: {
     transform: 'translate3d(0, 0, 0)',
@@ -32,10 +33,6 @@ const styles = {
     width: '50vw',
     height: '100vh',
     top: 0,
-    alignSelf: 'flex-start',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   img: {
     ...imgStyles,
@@ -65,7 +62,7 @@ const styles = {
 
   '@media (max-width: 767px)': {
     main: {
-      flexDirection: 'column-reverse',
+      flexDirection: 'column',
     },
     imageContainer: {
       width: '100vw',
@@ -74,10 +71,12 @@ const styles = {
       paddingTop: 0,
       zIndex: '1',
       width: '100%',
+      transform: 'translateY(-100vh)', // someone stop me
     },
     step: {
       backgroundColor: 'rgba(255, 255, 255, 0.9)',
       padding: '20px',
+      maxWidth: '420px',
     },
     text: {
       justifyContent: 'center',
@@ -122,14 +121,6 @@ class Graphic extends Component {
 
     return (
       <div className={classes.main}>
-        <div className={classes.content}>
-          <Navbar />
-          <Header header={header} />
-          <Scrollama offset={SCROLLAMA_OFFSET} onStepEnter={this.onStepEnter}>
-            {this.steps}
-          </Scrollama>
-          <Footer />
-        </div>
         <div className={classes.imageContainer} id={STICKY_ID}>
           {this.images.map(({ src, alt }) => (
             <img
@@ -139,6 +130,14 @@ class Graphic extends Component {
               alt={alt}
             />
           ))}
+        </div>
+        <div className={classes.content}>
+          <Navbar />
+          <Header header={header} />
+          <Scrollama offset={SCROLLAMA_OFFSET} onStepEnter={this.onStepEnter}>
+            {this.steps}
+          </Scrollama>
+          <Footer />
         </div>
       </div>
     );

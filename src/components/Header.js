@@ -22,7 +22,7 @@ const styles = {
     textAlign: 'center',
   },
   byline: {
-    fontSize: '0.9rem',
+    fontSize: '0.93rem',
     fontFamily: 'Open Sans',
     color: '#777',
     margin: 0,
@@ -44,11 +44,30 @@ const styles = {
     padding: '0 10%',
     margin: '0 auto',
     color: '#aaa',
+    fontWeight: 300,
     lineHeight: 1.6,
   },
   '@media (max-width: 991px)': {
     title: {
       width: '92%',
+    },
+  },
+  '@media (max-width: 767px)': {
+    header: {
+      padding: '42px 0',
+      marginTop: '24vh',
+      background: 'rgba(255, 255, 255, 0.9)',
+    },
+    smallButMightyLine: {
+      backgroundColor: '#aaa',
+    },
+    byline: {
+      color: '#333',
+      fontWeight: 400,
+    },
+    timestamp: {
+      color: '#333',
+      fontWeight: 400,
     },
   },
   '@media (max-width: 575px)': {
