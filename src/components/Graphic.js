@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
 import injectSheet from 'react-jss';
+import stickybits from 'stickybits';
 import { shorten } from '../utils';
 import Navbar from './Navbar';
 import Header from './Header';
 import Footer from './Footer';
+
+const STICKY_ID = 'make-me-rad-n-sticky';
+stickybits('#' + STICKY_ID);
 
 const SCROLLAMA_OFFSET = window.innerWidth > 575 ? 0.5 : 0.8;
 
@@ -126,7 +130,7 @@ class Graphic extends Component {
           </Scrollama>
           <Footer />
         </div>
-        <div className={classes.imageContainer}>
+        <div className={classes.imageContainer} id={STICKY_ID}>
           {this.images.map(({ src, alt }) => (
             <img
               key={src}
