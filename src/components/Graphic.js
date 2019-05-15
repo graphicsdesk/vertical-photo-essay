@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
 import injectSheet from 'react-jss';
 import { shorten } from '../utils';
+import Navbar from './Navbar';
+import Header from './Header';
+import Footer from './Footer';
 
 const SCROLLAMA_OFFSET = window.innerWidth > 575 ? 0.5 : 0.8;
 
@@ -40,9 +43,8 @@ const styles = {
     visibility: 'hidden',
     opacity: 0,
   },
-  scroller: {
+  content: {
     width: '50vw',
-    padding: '70vh 0 20vh 0',
   },
   step: {
     margin: '0 auto',
@@ -64,7 +66,7 @@ const styles = {
     imageContainer: {
       width: '100vw',
     },
-    scroller: {
+    content: {
       paddingTop: 0,
       zIndex: '1',
       width: '100%',
@@ -112,14 +114,17 @@ class Graphic extends Component {
 
   render() {
     const { image } = this.state;
-    const { classes } = this.props;
+    const { classes, header } = this.props;
 
     return (
       <div className={classes.main}>
-        <div className={classes.scroller}>
+        <div className={classes.content}>
+          <Navbar />
+          <Header header={header} />
           <Scrollama offset={SCROLLAMA_OFFSET} onStepEnter={this.onStepEnter}>
             {this.steps}
           </Scrollama>
+          <Footer />
         </div>
         <div className={classes.imageContainer}>
           {this.images.map(({ src, alt }) => (

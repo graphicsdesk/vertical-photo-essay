@@ -3,16 +3,13 @@ import archieml from 'archieml';
 import copyString from '../copy';
 
 import Graphic from './Graphic';
-// import Header from './Header';
 
-const { slides } = archieml.load(copyString);
+const { header, slides } = archieml.load(copyString);
 
-const App = ({ classes }) => {
-  return (
-    <div className={classes.App}>
-      <Graphic slides={slides} />
-    </div>
-  );
-};
+const App = () => (
+  <div>
+    <Graphic slides={slides} header={header} />
+  </div>
+);
 
 export default App;
