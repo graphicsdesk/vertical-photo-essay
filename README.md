@@ -1,4 +1,4 @@
-**50/50 photo essay template.**
+**Photo essay template for vertical images.**
 
 ---
 
