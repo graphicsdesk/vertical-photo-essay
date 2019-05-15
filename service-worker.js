@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/awn-funeral/precache-manifest.dbe5df1c0076743a1aab312b6ede4b9f.js"
+  "/awn-funeral/precache-manifest.eaee84950bf1c0636ef6bda44e37d9ae.js"
 );
 
 self.addEventListener('message', (event) => {
