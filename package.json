@@ -1,7 +1,7 @@
 {
-  "name": "halfs-photo-essay",
+  "name": "vertical-photo-essay",
   "version": "0.1.0",
-  "homepage": "https://spec-journalism.github.io/halfs-photo-essay",
+  "homepage": "https://spec-journalism.github.io/vertical-photo-essay",
   "private": true,
   "dependencies": {
     "archieml": "^0.4.2",
